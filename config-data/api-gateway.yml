@@ -1,0 +1,6 @@
+server:
+  port: 443
+
+spring:
+  application:
+    name: api-gateway
