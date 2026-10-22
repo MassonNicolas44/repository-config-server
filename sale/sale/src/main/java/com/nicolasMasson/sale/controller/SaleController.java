@@ -23,7 +23,7 @@ public class SaleController {
 
     @GetMapping("/find/{id}")
     public Object findSale(@PathVariable Long id){
-        Optional<SaleDTO> findSale=saleService.findById(id);
+        Optional<SaleDTO> findSale=saleService.findByIdSale(id);
 
         if(findSale.isPresent()){
             return findSale.get();
@@ -34,12 +34,12 @@ public class SaleController {
     
     @GetMapping("/findAll")
     public List<SaleDTO> findAllSale(){
-        return saleService.findAll();
+        return saleService.findAllSale();
     }
 
     @PutMapping("/update/{id}")
     public Object updateSale(@RequestBody Sale sale, @PathVariable Long id){
-        Optional<SaleDTO> findSale=saleService.findById(id);
+        Optional<SaleDTO> findSale=saleService.findByIdSale(id);
 
         if(findSale.isPresent()){
             saleService.updateSale(id,sale);
@@ -51,7 +51,7 @@ public class SaleController {
 
     @DeleteMapping("/delete/{id}")
     public Object deleteSale(@PathVariable Long id){
-        Optional<SaleDTO> findSale=saleService.findById(id);
+        Optional<SaleDTO> findSale=saleService.findByIdSale(id);
         if(findSale.isPresent()){
             saleService.deleteSale(id);
             return "Sale deleted";
